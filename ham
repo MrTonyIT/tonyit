@@ -1,0 +1,8 @@
+def kiem_tra_ngan_sach(gia_tien, so_luong, tui_tien):
+  tong = gia_tien * so_luong
+  if tong <= tui_tien:
+    return "Đủ tiền mua"
+  else:
+    thieu = tong - tui_tien
+    return f"không đủ tiền mua bạn còn thiếu: {thieu}"
+print(kiem_tra_ngan_sach(20, 29, 111))
