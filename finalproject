@@ -1,0 +1,68 @@
+import tensorflow as tf
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Task 1
+print(tf.__version__)
+
+# Task 2
+test_generator = test_datagen.flow_from_directory(
+    test_dir,
+    target_size=(224, 224),
+    batch_size=32,
+    class_mode='categorical'
+)
+
+# Task 3
+print(len(train_generator))
+
+# Task 4
+model.summary()
+
+# Task 5
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+
+# Task 6
+acc = history.history['accuracy']
+val_acc = history.history['val_accuracy']
+epochs = range(len(acc))
+
+plt.figure()
+plt.plot(epochs, acc, label='Training Accuracy')
+plt.plot(epochs, val_acc, label='Validation Accuracy')
+plt.title('Training and Validation Accuracy (Feature Extraction)')
+plt.legend()
+plt.show()
+
+# Task 7
+loss_fine = history_fine.history['loss']
+val_loss_fine = history_fine.history['val_loss']
+epochs_fine = range(len(loss_fine))
+
+plt.figure()
+plt.plot(epochs_fine, loss_fine, label='Training Loss')
+plt.plot(epochs_fine, val_loss_fine, label='Validation Loss')
+plt.title('Training and Validation Loss (Fine Tuning)')
+plt.legend()
+plt.show()
+
+# Task 8
+acc_fine = history_fine.history['accuracy']
+val_acc_fine = history_fine.history['val_accuracy']
+
+plt.figure()
+plt.plot(epochs_fine, acc_fine, label='Training Accuracy')
+plt.plot(epochs_fine, val_acc_fine, label='Validation Accuracy')
+plt.title('Training and Validation Accuracy (Fine Tuning)')
+plt.legend()
+plt.show()
+
+# Task 9
+index_to_plot = 1
+test_images, test_labels = next(test_generator)
+plt.imshow(test_images[index_to_plot])
+plt.axis('off')
+plt.title("Test Image (Feature Extraction Model)")
+plt.show()
+
+# Task 10
